@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchParams } from '../app/search/page'
+import { SearchParams } from '../../typings'
 import { Result } from '../../typings'
 
 export async function fetchResults(searchParams: SearchParams) {
@@ -50,7 +50,7 @@ export async function fetchResults(searchParams: SearchParams) {
                   {
                     _fn: "xpath_one",
                     _args: [
-                      ".//h4[contains(@class, 'abf093bdfe e8f7c070a7')]/text()",
+                      ".//div[contains(@class, 'c0ade187b1')]/h4[contains(@class, 'e8acaa0d22 e7baf22fe8')]/text()",
                     ],
                   },
                 ],
@@ -69,7 +69,7 @@ export async function fetchResults(searchParams: SearchParams) {
                 _fns: [
                   {
                     _fn: "xpath_one",
-                    _args: [".//a[contains(@class, 'a78ca197d0')]/@href"],
+                    _args: [".//a[@data-testid='title-link']/@href"],
                   },
                 ],
               },
@@ -78,7 +78,7 @@ export async function fetchResults(searchParams: SearchParams) {
                   {
                     _fn: "xpath_one",
                     _args: [
-                      `.//span[contains(@class, 'f6431b446c fbfd7c1165 e84eb96b1f')]/text()`,
+                      `.//span[@data-testid='price-and-discounted-price']/text()`,
                     ],
                   },
                 ],
@@ -96,7 +96,7 @@ export async function fetchResults(searchParams: SearchParams) {
                   {
                     _fn: "xpath_one",
                     _args: [
-                      ".//div[@class='a3b8729ab1 e6208ee469 cb2cbb3ccb']/text()",
+                      ".//div[contains(@class,'d0522b0cca eb02592978 f374b67e8c']/text()",
                     ],
                   },
                 ],
@@ -105,7 +105,7 @@ export async function fetchResults(searchParams: SearchParams) {
                 _fns: [
                   {
                     _fn: "xpath_one",
-                    _args: [".//div[@class='a3b8729ab1 d86cee9b25']/text()"],
+                    _args: [".//div[@data-testid='review-score']/div[class='d0522b0cca fd44f541d8']/div[class='a447b19dfd']/text()"],
                   },
                 ],
               },

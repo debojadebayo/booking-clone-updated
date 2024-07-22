@@ -22,3 +22,14 @@ export type Listing = {
 
 
 }
+
+
+export type SearchParams = {
+
+    url: URL, 
+    checkin: string, 
+    checkout: string,
+    group_adults: string,
+    group_children: string,
+    no_rooms: string,
+  }
