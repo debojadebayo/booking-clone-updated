@@ -41,7 +41,7 @@ async function SearchPage({ searchParams }: Props) {
             <h3 className='font-semibold text-xl'>{results.content.total_listings}</h3>
       
             <div className='mt-5'>
-              {/* {results.content.listings.map((listing, i) => (
+              {results.content.listings.map((listing, i) => (
       
                 <div key={i} className='flex space-y-2 justify-between space-x-4 p-5 border
                 rounded-lg max-w-7xl'>
@@ -79,13 +79,10 @@ async function SearchPage({ searchParams }: Props) {
                       <p className="text-xs">{listing.price}</p>
                       <p className= "text-2xl">{listing.booking_metadata}</p>
                     </div>
-                    
-                    </div>
-                    </div> 
-                </div>
-      
-                
-              ))} */}
+
+                  </div>
+                </div> 
+              ))}
       
             </div>
           </div>

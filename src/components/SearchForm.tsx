@@ -34,6 +34,8 @@ const formSchema = z.object({
     dates: z.object({
         from: z.date(),
         to: z.date(),
+    }).refine(data => data.from < data.to, {
+        message: "Check-out date must be after check-in date",
     }),
     adults: z.string().min(1, {
         message: "At least 1 adult is required",
@@ -131,11 +133,11 @@ export function SearchForm() {
                             name="dates"
                             render={({ field }) => (
                                 <FormItem className="flex flex-col">
-                                <FormLabel className="text-white flex">
-                                    Dates
-                                    <CalendarIcon className="ml-2 h-4 w-4 text-white" />
-                                </FormLabel>
-                                <FormMessage />
+                                    <FormLabel className="text-white flex">
+                                        Dates
+                                        <CalendarIcon className="ml-2 h-4 w-4 text-white" />
+                                    </FormLabel>
+                                    <FormMessage />
 
                                     <Popover>
                                         <PopoverTrigger asChild>
@@ -182,7 +184,7 @@ export function SearchForm() {
                                                     return date < today
                                                 }}
 
-                                                        />
+                                            />
                                         </PopoverContent>
                                     </Popover>
                                 </FormItem>
@@ -200,7 +202,7 @@ export function SearchForm() {
                                                 <FormLabel className="text-white flex">
                                                 Adults
                                                 </FormLabel>
-                                                <FormMessage />
+                                                <FormMessage className="text-red-500" />
                                                 
                                                 <FormControl>
                                                     <Input type="number" placeholder="Adults"{...field} className="text-gray-500 bg-white"/>
@@ -218,7 +220,7 @@ export function SearchForm() {
                                         <FormLabel className="text-white flex">
                                             Children
                                         </FormLabel>
-                                        <FormMessage />
+                                        <FormMessage className="text-red-500"/>
                                                 
                                         <FormControl>
                                             <Input type="number" placeholder="Children"{...field} className="text-gray-500 bg-white"/>
@@ -238,7 +240,7 @@ export function SearchForm() {
                                             Rooms
                                         </FormLabel>
                                         
-                                        <FormMessage />
+                                        <FormMessage className="text-red-500" />
                                                 
                                         <FormControl>
                                             <Input type="number" placeholder="Rooms"{...field} className="text-gray-500 bg-white"/>
@@ -248,9 +250,7 @@ export function SearchForm() {
                                 />
                         </div>
 
-                    
-
-                        <div>
+                        <div className="flex pt-5">
                             <Button 
                             type="submit" 
                             className="bg-blue-500 text-base"

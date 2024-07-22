@@ -55,16 +55,16 @@ export async function fetchResults(searchParams: SearchParams) {
                   },
                 ],
               },
-              booking_metadata: {
-                _fns: [
-                  {
-                    _fn: "xpath_one",
-                    _args: [
-                      ".//div[contains(@class, 'c5ca594cb1 f19ed67e4b')]/div[contains(@class, 'abf093bdfe f45d8e4c32')]/text()",
-                    ],
-                  },
-                ],
-              },
+              // booking_metadata: {
+              //   _fns: [
+              //     {
+              //       _fn: "xpath_one",
+              //       _args: [
+              //         ".//div[contains(@class, 'c5ca594cb1 f19ed67e4b')]/div[contains(@class, 'abf093bdfe f45d8e4c32')]/text()",
+              //       ],
+              //     },
+              //   ],
+              // },
               link: {
                 _fns: [
                   {
@@ -91,34 +91,34 @@ export async function fetchResults(searchParams: SearchParams) {
                   },
                 ],
               },
-              rating_word: {
-                _fns: [
-                  {
-                    _fn: "xpath_one",
-                    _args: [
-                      ".//div[contains(@class,'d0522b0cca eb02592978 f374b67e8c']/text()",
-                    ],
-                  },
-                ],
-              },
-              rating: {
-                _fns: [
-                  {
-                    _fn: "xpath_one",
-                    _args: [".//div[@data-testid='review-score']/div[class='d0522b0cca fd44f541d8']/div[class='a447b19dfd']/text()"],
-                  },
-                ],
-              },
-              rating_count: {
-                _fns: [
-                  {
-                    _fn: "xpath_one",
-                    _args: [
-                      ".//div[@class='abf093bdfe f45d8e4c32 d935416c47']/text()",
-                    ],
-                  },
-                ],
-              },
+              // rating_word: {
+              //   _fns: [
+              //     {
+              //       _fn: "xpath_one",
+              //       _args: [
+              //         ".//div[contains(@class,'d0522b0cca eb02592978 f374b67e8c']/text()",
+              //       ],
+              //     },
+              //   ],
+              // },
+              // rating: {
+              //   _fns: [
+              //     {
+              //       _fn: "xpath_one",
+              //       _args: [".//div[@data-testid='review-score']/div[class='d0522b0cca fd44f541d8']/div[class='a447b19dfd']/text()"],
+              //     },
+              //   ],
+              // },
+              // rating_count: {
+              //   _fns: [
+              //     {
+              //       _fn: "xpath_one",
+              //       _args: [
+              //         ".//div[@class='abf093bdfe f45d8e4c32 d935416c47']/text()",
+              //       ],
+              //     },
+              //   ],
+              // },
             },
           },
             total_listings: {
