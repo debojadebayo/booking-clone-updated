@@ -19,12 +19,13 @@ async function SearchPage({ searchParams }: Props) {
     const results = await fetchResults(searchParams)
     
     if (!results || !results.content) {
+      console.error("No results or listings found", results)
       return <div> No results found </div>;
     }
     
     const content = results.content
 
-      {console.log("Returning results", results.content)}
+      {console.log("Returning results", content)}
      
       return (
 
@@ -40,10 +41,10 @@ async function SearchPage({ searchParams }: Props) {
       
             <h3 className='font-semibold text-xl'>{results.content.total_listings}</h3>
       
-            <div className='mt-5'>
+            <div className='mt-5 mb-2'>
               {results.content.listings.map((listing, i) => (
       
-                <div key={i} className='flex space-y-2 justify-between space-x-4 p-5 border
+                <div key={i} className='flex mb-2 justify-between space-x-4 p-5 border
                 rounded-lg max-w-7xl'>
                   <Image
                   src={listing.url}
@@ -58,26 +59,15 @@ async function SearchPage({ searchParams }: Props) {
                     <div>
                       <Link 
                         href={listing.link}
-                        className='font-bold text-blue-500 hover:text-blue-600 hover:underline'>
+                        className='font-bold text-blue-500 hover:text-blue-600 hover:underline text-2xl'>
                           {listing.title}
                       </Link>
-                      <p className='text-sm'>{listing.description}</p>
+                      <p className='text-md mt-4'>{listing.description}</p>
                     </div>
 
-                    <div className= "flex flex-col justify-between ">
-                      <div className= "flex items-start justify-end space-x-2 text-right">
-                        <p className="font-bold">{listing.rating_word}</p>
-                        <p className= "text-xs">{listing.rating_count}</p>
-                      </div>
-
-                      <p className="flex items-center justify-center font-bold text-sm w-10 h-10 text-white bg-blue-900 rounded-lg flex-shrink-0">
-                        {listing.rating || "N/A"}
-                      </p>
-                    </div>
 
                     <div className="text-right">
-                      <p className="text-xs">{listing.price}</p>
-                      <p className= "text-2xl">{listing.booking_metadata}</p>
+                      <p className="text-md">{listing.price}</p>
                     </div>
 
                   </div>

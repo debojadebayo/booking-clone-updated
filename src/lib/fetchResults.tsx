@@ -33,7 +33,7 @@ export async function fetchResults(searchParams: SearchParams) {
             _fns: [
               {
                 _fn: "xpath",
-                _args: ["//div[@data-testid='property-card-container']"],
+                _args: ["//div[@data-testid='property-card']"],
               },
             ],
             _items: {
@@ -55,16 +55,16 @@ export async function fetchResults(searchParams: SearchParams) {
                   },
                 ],
               },
-              // booking_metadata: {
-              //   _fns: [
-              //     {
-              //       _fn: "xpath_one",
-              //       _args: [
-              //         ".//div[contains(@class, 'c5ca594cb1 f19ed67e4b')]/div[contains(@class, 'abf093bdfe f45d8e4c32')]/text()",
-              //       ],
-              //     },
-              //   ],
-              // },
+              booking_metadata: {
+                _fns: [
+                  {
+                    _fn: "xpath_one",
+                    _args: [
+                      ".//div[contains(@class, 'c5ca594cb1 f19ed67e4b')]/div[contains(@class, 'abf093bdfe f45d8e4c32')]/text()",
+                    ],
+                  },
+                ],
+              },
               link: {
                 _fns: [
                   {
@@ -91,41 +91,37 @@ export async function fetchResults(searchParams: SearchParams) {
                   },
                 ],
               },
-              // rating_word: {
-              //   _fns: [
-              //     {
-              //       _fn: "xpath_one",
-              //       _args: [
-              //         ".//div[contains(@class,'d0522b0cca eb02592978 f374b67e8c']/text()",
-              //       ],
-              //     },
-              //   ],
-              // },
-              // rating: {
-              //   _fns: [
-              //     {
-              //       _fn: "xpath_one",
-              //       _args: [".//div[@data-testid='review-score']/div[class='d0522b0cca fd44f541d8']/div[class='a447b19dfd']/text()"],
-              //     },
-              //   ],
-              // },
-              // rating_count: {
-              //   _fns: [
-              //     {
-              //       _fn: "xpath_one",
-              //       _args: [
-              //         ".//div[@class='abf093bdfe f45d8e4c32 d935416c47']/text()",
-              //       ],
-              //     },
-              //   ],
-              // },
+              rating_word: {
+                _fns: [
+                  {
+                    _fn: "xpath_one",
+                    _args: [".//span[contains(@class, 'e8acaa0d22 eb02592978 f374b67e8c')]/text()"],
+                  },
+                ],
+              },
+              rating_count: {
+                _fns: [
+                  {
+                    _fn: "xpath_one",
+                    _args: [".//span[contains(@class, 'e8acaa0d22 ab107395cb c60bada9e4')]/text()"],
+                  },
+                ],
+              },
+              rating: {
+                _fns: [
+                  {
+                    _fn: "xpath_one",
+                    _args: [".//div[class='a447b19dfd')/text()"],
+                  },
+                ],
+              },
             },
           },
             total_listings: {
                     _fns: [
                         {
                             _fn: "xpath_one",
-                            _args: ["//h1/text()"]
+                            _args: ["//h1[contains(@class, 'd8f77e681c')]/text()"]
                         }
                     ]
             },
@@ -154,8 +150,6 @@ export async function fetchResults(searchParams: SearchParams) {
       }
 
       const data = await response.json()
-      console.log("response data >>> ", data)
-
       if(data.results.length === 0) return 
       
       const results: Result = data.results[0]
@@ -163,7 +157,7 @@ export async function fetchResults(searchParams: SearchParams) {
       
       }
       catch (error) {
-        console.error('You fucked up somewhere:', error)
+        console.error('There was an error somewhere somewhere:', error)
       }
   
 }
